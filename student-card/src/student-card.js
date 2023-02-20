@@ -1,9 +1,19 @@
 import { LitElement, html, css } from 'lit';
 
+const Bryce = new URL('../assets/bryce-image.png', import.meta.url).href;
+
 export class StudentCard extends LitElement {
+  static get properties() {
+    return {
+      name: {
+        type: String,
+        reflect: true
+      },
+    }
+  }
   static get styles () {
     return css`
-       .buttons{
+    .buttons{
    padding: 5px;
    color: blue;
 }
@@ -68,35 +78,30 @@ p {
 
   constructor() {
     super();
-    this.version = 'STARTING';
+    this.paragraph = "Details ";
+    this.name = "BRYYYYYCCCEEEEEE"
   }
 
   render() {
     return html`
-    <button id="copy" class="buttons">Copy</button>
 
-<button id="toggleBackGroundColor" class = "buttons">Change Background Color</button>
-
-<button id="changeTitle" class = "buttons">Change Title</button>
-
-<button id="deleteButton" class = "buttons">Delete Last Instance</button>
-
-<section class="all">
+<div class="all">
 <header class ="name">
-  <h1 id = "mainTitle" class="title">Me When The Code Works</h1>
+  <h1 class="title">${this.name}</h1>
   </header>
-   <p>
-My face when he code finaly decides to work.  This is Bryce.  He looks so cool.
-  </p>
+   <details class="header">
+          <summary>${this.paragraph}</summary>
+          <div>
+          <ul>
+        <li>My face when he code finaly decides to work.  This is Bryce.  He looks so cool.</li>
+      </ul>
+          </div>
+        </details>
 <section class="content">
-  <img src = "https://cdn.discordapp.com/attachments/1062806966021402684/1063160172773654659/IMG_9420.png">
-    
-    <button id = "detailsBtn" class="detailsButton">Details</button>
+  <img src = "${Bryce}">
     </a>
-  
    </section>
-  
-</section>
+  </div>
     `;
   }
 }
