@@ -83,8 +83,6 @@ p {
     super();
     this.paragraph = "Details ";
     this.name = "BRYYYYYCCCEEEEEE"
-    this.image =
-    "https://hips.hearstapps.com/hmg-prod/images/2023-toyota-gr-corolla-111-1648581910.jpg";
     this.topText = "Hi"
     this.bottomText = "Hi"
   }
@@ -106,12 +104,10 @@ p {
         </details>
   <section class="content">
   <meme-maker
-          alt="A Toyota Tacoma"
           image-url="${Bryce}"
           top-text="${this.topText}"
           bottom-text="${this.bottomText}"
         ></meme-maker>
-    <slot name="image"></slot>
    </section>
   </div>
     `;
