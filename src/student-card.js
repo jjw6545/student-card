@@ -1,4 +1,6 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/meme-maker";
+
 
 const Bryce = new URL('../assets/bryce-image.png', import.meta.url).href;
 
@@ -73,6 +75,7 @@ p {
     transform: scale(0.8);
   }
 }
+  }
     `;
   };
 
@@ -80,6 +83,8 @@ p {
     super();
     this.paragraph = "Details ";
     this.name = "BRYYYYYCCCEEEEEE"
+    this.img =
+    "https://hips.hearstapps.com/hmg-prod/images/2023-toyota-gr-corolla-111-1648581910.jpg";
   }
 
   render() {
@@ -99,7 +104,7 @@ p {
         </details>
 <section class="content">
   <img src = "${Bryce}">
-    </a>
+    <slot name="img"></slot>
    </section>
   </div>
     `;
