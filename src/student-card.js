@@ -83,8 +83,10 @@ p {
     super();
     this.paragraph = "Details ";
     this.name = "BRYYYYYCCCEEEEEE"
-    this.img =
+    this.image =
     "https://hips.hearstapps.com/hmg-prod/images/2023-toyota-gr-corolla-111-1648581910.jpg";
+    this.topText = "Hi"
+    this.bottomText = "Hi"
   }
 
   render() {
@@ -98,13 +100,18 @@ p {
           <summary>${this.paragraph}</summary>
           <div>
           <ul>
-        <li>My face when he code finaly decides to work.  This is Bryce.  He looks so cool.</li>
-      </ul>
+          <li>My face when he code finaly decides to work.  This is Bryce.  He looks so cool.</li>
+          </ul>
           </div>
         </details>
-<section class="content">
-  <img src = "${Bryce}">
-    <slot name="img"></slot>
+  <section class="content">
+  <meme-maker
+          alt="A Toyota Tacoma"
+          image-url="${Bryce}"
+          top-text="${this.topText}"
+          bottom-text="${this.bottomText}"
+        ></meme-maker>
+    <slot name="image"></slot>
    </section>
   </div>
     `;
