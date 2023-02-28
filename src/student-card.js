@@ -11,6 +11,14 @@ export class StudentCard extends LitElement {
         type: String,
         reflect: true
       },
+      description: {
+        type: String,
+        reflect: true
+      },
+      opened: {
+        type: Boolean,
+        reflect: true
+      }
     }
   }
   static get styles () {
@@ -82,10 +90,17 @@ p {
   constructor() {
     super();
     this.paragraph = "Details ";
-    this.name = "BRYYYYYCCCEEEEEE"
-    this.topText = "Hi"
-    this.bottomText = "Hi"
+    this.name = "BRYYYYYCCCEEEEEE";
+    this.description = "My face when he code finaly decides to work.  This is Bryce.  He looks so cool.";
+    this.topText = "Hi";
+    this.bottomText = "Hi";
+    this.opened = false;
   }
+  toggleEvent (e){
+    const state = this.shadowRoot.querySelector('details').getAttribute('open') === '' ? true : false;
+    this.opened = state;
+  }
+
 
   render() {
     return html`
@@ -94,12 +109,10 @@ p {
 <header class ="name">
   <h1 class="title">${this.name}</h1>
   </header>
-   <details class="header">
+   <details class="header" .open="${this.opened}" @toggle="${this.toggleEvent}">
           <summary>${this.paragraph}</summary>
           <div>
-          <ul>
-          <li>My face when he code finaly decides to work.  This is Bryce.  He looks so cool.</li>
-          </ul>
+          <p class="text" part="descriptionText">${this.description}</p>
           </div>
         </details>
   <section class="content">
