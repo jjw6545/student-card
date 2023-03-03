@@ -25,7 +25,7 @@
     <button class="colorButton">Change Background Color</button>
     <button class = "changeTitle">Change Title</button>
     <button class = "deleteButton">Delete Last Instance</button>
-    <button detailsBtn>Details</button>
+    <button class = "detailsButton">Details</button>
   </div>
  <div id="app">
   <student-card top="BRYCLE">
@@ -38,7 +38,15 @@
 
   <script type="module" src="./src/student-card.js"></script>
   <script>
-    document.querySelector('button[detailsBtn]').addEventListener('click', (e) =>{
+
+    document.body.addEventListener("open-changed", (e) => {
+        if (e.target === document.querySelector("student-card")) {
+          document.querySelector(".detailsButton").innerText = e.detail.value
+            ? 'Close Detail'
+            : 'Open Detail';
+        }
+      });
+    document.querySelector('.detailsButton').addEventListener('click', (e) =>{
   //     const details = document.querySelector('student-card').shadowRoot.querySelector('details')
   //  if (details.getAttribute('open')) {
   //   details.removeAttribute('open');

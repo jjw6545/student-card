@@ -27,16 +27,12 @@ export class StudentCard extends LitElement {
    padding: 5px;
    color: blue;
 }
-
 .buttons:hover{
   background-color: orange;
 }
-
 .buttons:focus {
   background-color: orange; 
 }
-
-
 .all{
   border-width: 5px;
   width: 400px;
@@ -44,12 +40,10 @@ export class StudentCard extends LitElement {
   margin: auto;
   margin-top: 10px;
 }
-
 .title{
   text-align: center;
   font-size: 40px;
 }
-
 .name{
   text-align: center;
 }
@@ -59,25 +53,21 @@ export class StudentCard extends LitElement {
 img {
   width: 300px;
 }
-
 p {
 /*   text-align: left;  */
   text-indent: 5%;
   font-size: 18px;
 }
-
 .detailsButton {
   margin: 12px;
   position: center; 
   color: blue;
 }
-
   @media (min-width: 500px) and (max-width: 800px) {
     
     .detailsButton {
       display: none;
     }
-
 @media (max-width: 500px) {
   .all{
     transform: scale(0.8);
@@ -96,15 +86,34 @@ p {
     this.bottomText = "Hi";
     this.opened = false;
   }
-  toggleEvent (e){
-    const state = this.shadowRoot.querySelector('details').getAttribute('open') === '' ? true : false;
+  toggleEvent(e) {
+    const state =
+      this.shadowRoot.querySelector("details").getAttribute("open") === ''
+        ? true
+        : false;
     this.opened = state;
+  }
+
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'opened') {
+        this.dispatchEvent(
+          new CustomEvent('open-changed', {
+            composed: true,
+            bubbles: true,
+            canelable: false,
+            detail: {
+              value: this[propName]
+            },
+          })
+        );
+      }
+    });
   }
 
 
   render() {
     return html`
-
 <div class="all">
 <header class ="name">
   <h1 class="title">${this.name}</h1>
