@@ -68,15 +68,20 @@ document.querySelector('.changeTitle').addEventListener('click', function(e) {
   }
 });
 document.querySelector('.deleteButton').addEventListener('click', function(e) {
-  let wantsTo = confirm("Are you sure?");
-  if (wantsTo) {
-    if (document.querySelector('#app :last-child') !== document.querySelector('student-card')) {
-      document.querySelector('#app :last-child').remove();      
-    }
-    else {
-      alert("YOU CAN NOT DELETE BRYCLE!!!!");
-    }
-  }  
+  // let wantsTo = confirm("Are you sure?");
+  // if (wantsTo) {
+  //   if (document.querySelector('#app :last-child') !== document.querySelector('student-card')) {
+  //     document.querySelector('#app :last-child').remove();      
+  //   }
+  //   else {
+  //     alert("YOU CAN NOT DELETE BRYCLE!!!!");
+  //   }
+  // }
+  const card = document.querySelectorAll("student-card");
+      if (card.length !== 1) { 
+        const lastCard = card[card.length - 1];
+        lastCard.remove();
+      }
 });
 </script>
 </body>
