@@ -121,7 +121,7 @@ p {
    <details class="header" .open="${this.opened}" @toggle="${this.toggleEvent}">
           <summary>${this.paragraph}</summary>
           <div>
-          <p class="text" part="descriptionText">${this.description}</p>
+            <slot></slot>
           </div>
         </details>
   <section class="content">
