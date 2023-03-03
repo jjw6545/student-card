@@ -34,6 +34,7 @@ export class StudentCard extends LitElement {
   background-color: orange; 
 }
 .all{
+  display: inline-block;
   border-width: 5px;
   width: 400px;
   max-width: 500px;
@@ -80,7 +81,7 @@ p {
   constructor() {
     super();
     this.paragraph = "Details ";
-    this.name = "BRYYYYYCCCEEEEEE";
+    this.name = "BRYYYCCCEEEE";
     this.description = "My face when he code finaly decides to work.  This is Bryce.  He looks so cool.";
     this.topText = "Hi";
     this.bottomText = "Hi";
