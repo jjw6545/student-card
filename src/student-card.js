@@ -18,7 +18,8 @@ export class StudentCard extends LitElement {
       opened: {
         type: Boolean,
         reflect: true
-      }
+      },
+      cardColor: { type: String, reflect: true, attribute: "card-color" },
     }
   }
   static get styles () {
@@ -33,6 +34,7 @@ export class StudentCard extends LitElement {
 .buttons:focus {
   background-color: orange; 
 }
+
 .all{
   display: inline-block;
   border-width: 5px;
@@ -40,6 +42,7 @@ export class StudentCard extends LitElement {
   max-width: 500px;
   margin: auto;
   margin-top: 10px;
+  background-color: var(--student-card-color, white);
 }
 .title{
   text-align: center;
@@ -82,6 +85,7 @@ p {
     super();
     this.paragraph = "Details ";
     this.name = "BRYYYCCCEEEE";
+    this.subname = "IST 256";
     this.description = "My face when he code finaly decides to work.  This is Bryce.  He looks so cool.";
     this.topText = "Hi";
     this.bottomText = "Hi";
@@ -118,6 +122,7 @@ p {
 <div class="all">
 <header class ="name">
   <h1 class="title">${this.name}</h1>
+  <h2 class="subtitle">${this.subname}</h2>
   </header>
    <details class="header" .open="${this.opened}" @toggle="${this.toggleEvent}">
           <summary>${this.paragraph}</summary>

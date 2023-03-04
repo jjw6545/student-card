@@ -14,7 +14,9 @@
       padding: 0;
       font-family: sans-serif;
       background-color: #ededed;
+      --student-card-background-color: green;
     }
+    
   </style>
   <title>student-card</title>
 </head>
@@ -42,8 +44,8 @@
     document.body.addEventListener("open-changed", (e) => {
         if (e.target === document.querySelector("student-card")) {
           document.querySelector(".detailsButton").innerText = e.detail.value
-            ? 'Close Detail'
-            : 'Open Detail';
+            ? 'Close Details'
+            : 'Open Details';
         }
       });
     document.querySelector('.detailsButton').addEventListener('click', (e) =>{
@@ -83,6 +85,21 @@ document.querySelector('.deleteButton').addEventListener('click', function(e) {
         lastCard.remove();
       }
 });
+function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      const card = document.querySelector("student-card");
+      document.querySelector('.colorButton').addEventListener("click", function (e) {
+      card.shadowRoot.querySelector(".all").style.backgroundColor =
+        getRandomColor();
+      var color = getRandomColor();
+    });
+
 </script>
 </body>
 
