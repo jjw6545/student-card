@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker";
 
 
-const Bryce = new URL('../assets/bryce-image.png', import.meta.url).href;
+//const Bryce = new URL('../assets/bryce-image.png', import.meta.url).href;
 
 export class StudentCard extends LitElement {
   static get properties() {
@@ -19,7 +19,12 @@ export class StudentCard extends LitElement {
         type: Boolean,
         reflect: true
       },
-      cardColor: { type: String, reflect: true, attribute: "card-color" },
+      cardColor: { 
+        type: String, 
+        reflect: true,
+        attribute: "card-color" },
+      imageLink: { 
+        type: String },
     }
   }
   static get styles () {
@@ -87,9 +92,10 @@ p {
     this.name = "BRYYYCCCEEEE";
     this.subname = "IST 256";
     this.description = "My face when he code finaly decides to work.  This is Bryce.  He looks so cool.";
-    this.topText = "Hi";
+    this.topText = "Woah my project is done";
     this.bottomText = "Hi";
     this.opened = false;
+    this.imageLink = "https://cdn.discordapp.com/attachments/1062806966021402684/1063160172773654659/IMG_9420.png";
   }
   toggleEvent(e) {
     const state =
@@ -132,7 +138,7 @@ p {
         </details>
   <section class="content">
   <meme-maker
-          image-url="${Bryce}"
+          image-url="${this.imageLink}"
           top-text="${this.topText}"
           bottom-text="${this.bottomText}"
         ></meme-maker>
